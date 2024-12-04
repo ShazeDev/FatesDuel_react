@@ -59,18 +59,13 @@
 
 .character-image-sc.selected {
   box-shadow: 0 0 15px 5px rgba(255, 165, 0, 0.8);
-  /* Resplandor naranja */
   transform: scale(1.05);
-  /* Escalado pequeño para destacar la imagen */
 }
 
 .character-image-sc {
   width: 80%;
-  /* Ancho de la imagen */
   height: auto;
-  /* Mantiene la proporción de la imagen */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  /* Transiciones suaves */
 }
 
 .character-select-content {
@@ -98,33 +93,22 @@
 
 .character-select-button:disabled {
   color: rgba(255, 255, 255, 0.5);
-  /* Color del texto tenue */
   cursor: not-allowed;
-  /* Cambia el cursor a "no permitido" */
   opacity: 0.6;
-  /* Añadir opacidad reducida */
 }
 
 .character-sc:hover {
   transform: scale(1.1);
-  /* Escala al 120% */
 }
 
 .character-image {
   width: 100%;
-  /* Ajusta al 100% del contenedor */
   height: auto;
-  /* Mantiene la proporción */
   border-radius: 8px;
-  /* Bordes redondeados */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  /* Transiciones suaves */
 }
 
-/* Nuevo código para resaltar la imagen seleccionada */
 .character-image.selected {
   box-shadow: 0 0 15px 5px rgba(255, 165, 0, 0.8);
-  /* Resplandor naranja */
   transform: scale(1.05);
-  /* Escalado pequeño para destacar la imagen */
 }

@@ -13,7 +13,6 @@ function Home() {
 
   return (
     <div className="home-container">
-      {/* Contenido del menú */}
       <div className="home-content">
         <h1 className='game-title'>Fate's Duel</h1>
         <div>

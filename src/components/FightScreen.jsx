@@ -59,26 +59,20 @@ function FightScreen() {
   }, [p1CharacterType, p2CharacterType]);
 
   const handleDice = () => {
-    // Desactiva el botón de dado y activa el de ataque
     setIsDiceDisabled(true);
     setIsAttackDisabled(false);
 
-    // Genera el número aleatorio inicial para cada jugador
     const p1Energy = Math.floor(Math.random() * 100) + 1;
     const p2Energy = Math.floor(Math.random() * 100) + 1;
 
-    // Muestra el número aleatorio inicial
     setEnergyP1(p1Energy);
     setEnergyP2(p2Energy);
 
-    // Elegir un stat aleatorio para sumar más tarde
     const stats = ["fuerza", "agilidad", "magia"];
     const randomStat = stats[Math.floor(Math.random() * stats.length)];
 
-    // Guardar el stat elegido en el estado para mostrarlo
     setRandomStat(randomStat);
 
-    // Espera 1 segundo antes de sumar el stat al número inicial
     setTimeout(() => {
       const p1StatValue = p1Stats[randomStat];
       const p2StatValue = p2Stats[randomStat];
@@ -89,14 +83,10 @@ function FightScreen() {
   };
 
   const handleAttack = () => {
-    // Imprimir antes del ataque
-    console.log('Antes del ataque - p1HP:', p1HP, 'p2HP:', p2HP);
 
-    // Desactivar el botón de ataque y activar el de dado
     setIsAttackDisabled(true);
     setIsDiceDisabled(false);
 
-    // Determinar quién tiene más energía y restar vidas
     if (energyP1 > energyP2) {
       setP2HP((prevHP) => Math.max(prevHP - 1, 0));  // Nunca dejar que HP sea menor que 0
     } else if (energyP2 > energyP1) {
@@ -110,11 +100,11 @@ function FightScreen() {
     if (p1HP <= 0) {
       setVictoryMessage("¡Victoria del Jugador 2!");
       setIsDiceDisabled(true);
-      setIsAttackDisabled(true); // Deshabilitar ambos botones
+      setIsAttackDisabled(true);
     } else if (p2HP <= 0) {
       setVictoryMessage("¡Victoria del Jugador 1!");
       setIsDiceDisabled(true);
-      setIsAttackDisabled(true); // Deshabilitar ambos botones
+      setIsAttackDisabled(true);
     }
   }, [p1HP, p2HP]); // Este useEffect se ejecutará cada vez que p1HP o p2HP cambien
 
@@ -144,20 +134,16 @@ function FightScreen() {
           <img src={p1Image} alt="Personaje 1" className="character-image flipped-image" />
           <div className="hearts">{renderHearts(p1HP)}</div>
         </div>
-
         <div className="mid-elements">
           <h2 className={`fighting-for-text ${randomStat ? 'fade-in' : 'fade-out'}`}>
             Peleando por... {randomStat}
           </h2>
           <img src="/src/assets/badge.png" className="badge-image" alt="Badge" />
           <div className="button-container">
-
             <button onClick={handleDice} className="button-icon-dice" disabled={isDiceDisabled}></button>
             <button onClick={handleAttack} className="button-icon-sword" disabled={isAttackDisabled}></button>
-
           </div>
         </div>
-
         <div className="character-fs">
           <div className="stats-energy">
             <div className="P2energy">{energyP2}</div>
@@ -173,12 +159,10 @@ function FightScreen() {
       </div>
       <div className="victory-message">{victoryMessage}</div>
       <div>
-
         <button
           onClick={handleMenu} className="back-button">
           Salir
         </button>
-
       </div>
     </div>
   );

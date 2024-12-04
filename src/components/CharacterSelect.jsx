@@ -11,11 +11,11 @@ function CharacterSelect() {
   // Estado para almacenar el personaje seleccionado
   const [p1CharacterType, setP1CharacterType] = useState(null);
   const [p2CharacterType, setP2CharacterType] = useState(null);
-  const [selectedCharacter, setSelectedCharacter] = useState(null); // Estado para la carta seleccionada
+  const [selectedCharacter, setSelectedCharacter] = useState(null);
 
   const handleCharacterClick = (character) => {
     setP1CharacterType(character);
-    setSelectedCharacter(character); // Actualizamos la carta seleccionada
+    setSelectedCharacter(character);
     console.log("Personaje seleccionado por P1:", character);
     selectRandomCharacterForP2(); // Selección aleatoria para P2
   };
@@ -33,8 +33,6 @@ function CharacterSelect() {
     console.log("Personaje P2:", p2CharacterType);
     if (p1CharacterType && p2CharacterType) {
       navigate(`/fight/${p1CharacterType}/${p2CharacterType}`);
-    } else {
-      alert("Selecciona un personaje para ambos jugadores.");
     }
   };
 
@@ -49,7 +47,7 @@ function CharacterSelect() {
           <img
             src="/src/assets/MageCard.png"
             alt="Personaje 1"
-            className={`character-image ${selectedCharacter === "MAGE" ? "selected" : ""}`} // Aplica la clase "selected" solo a la imagen
+            className={`character-image ${selectedCharacter === "MAGE" ? "selected" : ""}`}
           />
         </div>
         <div
@@ -59,7 +57,7 @@ function CharacterSelect() {
           <img
             src="/src/assets/ElfCard.png"
             alt="Personaje 2"
-            className={`character-image ${selectedCharacter === "ARCHER" ? "selected" : ""}`} // Aplica la clase "selected" solo a la imagen
+            className={`character-image ${selectedCharacter === "ARCHER" ? "selected" : ""}`}
           />
         </div>
         <div
@@ -69,14 +67,14 @@ function CharacterSelect() {
           <img
             src="/src/assets/OrcCard.png"
             alt="Personaje 3"
-            className={`character-image ${selectedCharacter === "ROGUE" ? "selected" : ""}`} // Aplica la clase "selected" solo a la imagen
+            className={`character-image ${selectedCharacter === "ROGUE" ? "selected" : ""}`}
           />
         </div>
       </div>
       <div className='character-select-content'>
         <button
           onClick={startGame}
-          disabled={!p1CharacterType || !p2CharacterType} // Desactivar el botón si algún personaje no ha sido seleccionado
+          disabled={!p1CharacterType || !p2CharacterType}
           className='character-select-button'
         >
           Iniciar partida
