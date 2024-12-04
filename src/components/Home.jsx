@@ -13,12 +13,6 @@ function Home() {
 
   return (
     <div className="home-container">
-      {/* Video de fondo */}
-      <video autoPlay loop muted className="home-video">
-        <source src="/menuVideo.mp4" type="video/mp4" />
-        Tu navegador no soporta el elemento de video.
-      </video>
-
       {/* Contenido del menú */}
       <div className="home-content">
         <h1 className='game-title'>Fate's Duel</h1>
